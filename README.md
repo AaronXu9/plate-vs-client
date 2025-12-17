@@ -17,13 +17,13 @@ This client provides programmatic access to the PLATE-VS database, which contain
 You can install the client directly from GitHub:
 
 ```bash
-pip install git+https://github.com/YOUR_USERNAME/plate-vs-client.git
+pip install https://github.com/AaronXu9/plate-vs-client.git
 ```
 
 ### Option 2: Clone and Install
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/plate-vs-client.git
+git clone https://github.com/AaronXu9/plate-vs-client.git
 cd plate-vs-client
 pip install -r requirements.txt
 ```
