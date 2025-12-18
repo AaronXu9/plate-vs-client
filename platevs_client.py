@@ -44,14 +44,19 @@ class PlateVSClient:
     # Available qcov levels for similarity matrix
     QCOV_LEVELS = [50, 70, 95, 100]
     
-    def __init__(self, timeout: int = 30, output_dir: str = "./platevs_data"):
+    def __init__(self, base_url: Optional[str] = None, timeout: int = 30, output_dir: str = "./platevs_data"):
         """
         Initialize the PLATE-VS client.
         
         Args:
+            base_url: Optional base URL to override the default
             timeout: Request timeout in seconds
             output_dir: Directory to save downloaded files
         """
+        if base_url:
+            self.BASE_URL = base_url.rstrip('/')
+            self.API_URL = f"{self.BASE_URL}/api"
+            
         self.timeout = timeout
         self.output_dir = Path(output_dir)
         self.output_dir.mkdir(parents=True, exist_ok=True)
