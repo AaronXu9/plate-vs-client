@@ -51,6 +51,7 @@ print(df.head())
 # Download similarity matrix data
 csv_path = client.download_similarity_matrix_csv(0.9, qcov_level=100)
 sdf_path = client.download_similarity_sdf(0.9)
+cif_path = client.download_similarity_cif()
 ```
 
 ## API Reference

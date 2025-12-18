@@ -293,6 +293,34 @@ class PlateVSClient:
             print(f"Error downloading SDF files: {e}")
             return None
     
+    def download_similarity_cif(self) -> Optional[Path]:
+        """
+        Download CIF files (zipped) containing raw UniProt structures.
+        
+        Returns:
+            Path to the downloaded CIF archive, or None if failed
+        """
+        endpoint = f"{self.API_URL}/similarity-matrix/download-cif"
+        
+        try:
+            # This endpoint redirects to S3, so we follow redirects
+            response = self.session.get(endpoint, timeout=self.timeout, allow_redirects=True)
+            response.raise_for_status()
+            
+            # Save the tar.gz file
+            zip_filename = "similarity_cif_raw.tar.gz"
+            zip_filepath = self.output_dir / zip_filename
+            
+            with open(zip_filepath, 'wb') as f:
+                f.write(response.content)
+            
+            print(f"Downloaded CIF archive: {zip_filepath}")
+            return zip_filepath
+            
+        except requests.exceptions.RequestException as e:
+            print(f"Error downloading CIF files: {e}")
+            return None
+    
     def download_all_similarity_data(
         self, 
         thresholds: List[float] = [0.9, 0.8, 0.7],
