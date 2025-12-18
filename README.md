@@ -77,6 +77,7 @@ PlateVSClient(timeout=30, output_dir="./platevs_data")
 | `download_affinity_data(query, query_type)` | Download affinity data to CSV |
 | `download_similarity_matrix_csv(threshold, qcov_level)` | Download similarity CSV |
 | `download_similarity_sdf(threshold)` | Download similarity SDF files (tar.gz) |
+| `download_similarity_cif()` | Download raw CIF files (tar.gz) |
 | `download_all_similarity_data(thresholds, qcov_level)` | Bulk download for multiple thresholds |
 | `check_service_status()` | Check if services are accessible |
 
