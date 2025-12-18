@@ -8,7 +8,7 @@ This client provides programmatic access to the PLATE-VS database, which contain
 
 1. **Search by UniProt ID** - Query affinity data for a specific protein
 2. **Search by SMILES** - Query affinity data for a specific compound (exact or similarity search)
-3. **Download Similarity Matrix Data** - Download CSV and SDF files for given similarity thresholds
+3. **Download Similarity Matrix Data** - Download CSV, SDF, and CIF files for given similarity thresholds
 
 ## Installation
 

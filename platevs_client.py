@@ -332,22 +332,28 @@ class PlateVSClient:
         qcov_level: int = 100
     ) -> Dict[float, Dict[str, Optional[Path]]]:
         """
-        Download all similarity data (CSV and SDF) for multiple thresholds.
+        Download all similarity data (CSV, SDF, and CIF) for multiple thresholds.
         
         Args:
             thresholds: List of similarity thresholds to download
             qcov_level: Query coverage level for CSV data
             
         Returns:
-            Dictionary mapping thresholds to their downloaded file paths
+            Dictionary mapping thresholds to their downloaded file paths.
+            Note: The 'cif' file is the same for all thresholds but included in each entry for convenience.
         """
         results = {}
+        
+        # Download CIF once as it is common for all thresholds
+        print(f"\nDownloading CIF archive (common for all thresholds)...")
+        cif_path = self.download_similarity_cif()
         
         for threshold in thresholds:
             print(f"\nDownloading data for threshold {threshold}...")
             results[threshold] = {
                 'csv': self.download_similarity_matrix_csv(threshold, qcov_level),
-                'sdf': self.download_similarity_sdf(threshold)
+                'sdf': self.download_similarity_sdf(threshold),
+                'cif': cif_path
             }
             # Be respectful of the server
             time.sleep(1)
