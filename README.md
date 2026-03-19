@@ -17,7 +17,7 @@ This client provides programmatic access to the PLATE-VS database, which contain
 You can install the client directly from GitHub:
 
 ```bash
-pip install https://github.com/AaronXu9/plate-vs-client.git
+pip install git+https://github.com/AaronXu9/plate-vs-client.git
 ```
 
 ### Option 2: Clone and Install
