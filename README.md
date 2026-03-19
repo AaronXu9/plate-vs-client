@@ -12,15 +12,19 @@ This client provides programmatic access to the PLATE-VS database, which contain
 
 ## Installation
 
-### Option 1: Install via pip (Recommended)
+### Option 1: Install via uv (Recommended)
 
-You can install the client directly from GitHub:
+```bash
+uv pip install git+https://github.com/AaronXu9/plate-vs-client.git
+```
+
+### Option 2: Install via pip
 
 ```bash
 pip install git+https://github.com/AaronXu9/plate-vs-client.git
 ```
 
-### Option 2: Clone and Install
+### Option 3: Clone and Install
 
 ```bash
 git clone https://github.com/AaronXu9/plate-vs-client.git
@@ -91,6 +95,7 @@ PlateVSClient(timeout=30, output_dir="./platevs_data")
 
 - `platevs_client.py` - Main client implementation
 - `platevs_example.ipynb` - Jupyter notebook with interactive examples
+- `pyproject.toml` - Package build configuration (PEP 517/518)
 - `requirements.txt` - Python dependencies
 - `README.md` - This documentation
 
